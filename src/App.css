@@ -18,8 +18,10 @@ input:focus {
   outline: none;
 }
 
-form {
-  padding-bottom: 2%;
+p {
+  padding-bottom: 0;
+  margin: 5px;
+  font-weight: bold;
 }
 
 button {

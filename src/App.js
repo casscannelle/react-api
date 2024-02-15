@@ -1,31 +1,30 @@
-import './App.css';
-import Marcas from './components/Marca/Marca';
-function App() {
+import React, { useState } from 'react';
+import axios from 'axios';
+import CarForm from './components/Carro/Carro';
+import CarInfo from './components/Resultado/Resultado';
+import './App.css'
+
+const App = () => {
+  const [carInfo, setCarInfo] = useState(null);
+
+  const searchCar = ({ ano, marca, modelo }) => {
+    axios.get(`https://parallelum.com.br/fipe/api/${marca}/${modelo}/${ano}.json`)
+      .then(response => {
+        setCarInfo(response.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar informações do carro:', error);
+        setCarInfo(null);
+      });
+  };
+
   return (
-    <>
     <div>
-      <h1>Consulte a tabela FIPE</h1>
+      <h1>Busca na Tabela FIPE</h1>
+      <CarForm onSearch={searchCar} />
+      {carInfo && <CarInfo carInfo={carInfo} />}
     </div>
-    <div>
-      <form>
-        <div>
-        <input type="select">
-        </input>
-        <Marcas />
-        </div>
-        <div>
-        <input type="select">
-        </input>
-        <div>
-        </div>
-        <input type="select">
-        </input>
-        </div>
-      </form>
-      <button>Enviar</button>
-    </div>
-    </>
   );
-}
+};
 
 export default App;
