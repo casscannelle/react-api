@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Marcas from './components/Marca/Marca';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <h1>Consulte a tabela FIPE</h1>
     </div>
+    <div>
+      <form>
+        <div>
+        <input type="select">
+        </input>
+        <Marcas />
+        </div>
+        <div>
+        <input type="select">
+        </input>
+        <div>
+        </div>
+        <input type="select">
+        </input>
+        </div>
+      </form>
+      <button>Enviar</button>
+    </div>
+    </>
   );
 }
 
