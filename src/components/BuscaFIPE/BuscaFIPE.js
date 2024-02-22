@@ -76,9 +76,9 @@ function BuscaFIPE() {
 
       <label>Marca:</label>
       <select value={selectedBrand} onChange={handleBrandChange}>
-        <option value="">Selecione a marca</option>
+        <option  value="">Selecione a marca</option>
         {carBrands.map(brand => (
-          <option key={brand.codigo} value={brand.codigo}>
+          <option className="options" key={brand.codigo} value={brand.codigo}>
             {brand.nome}
           </option>
         ))}
@@ -90,7 +90,7 @@ function BuscaFIPE() {
           <select value={selectedModel} onChange={handleModelChange}>
             <option value="">Selecione o modelo</option>
             {carModels.map(model => (
-              <option key={model.codigo} value={model.codigo}>
+              <option className="options" key={model.codigo} value={model.codigo}>
                 {model.nome}
               </option>
             ))}
@@ -102,7 +102,7 @@ function BuscaFIPE() {
               <select value={selectedYear} onChange={handleYearChange}>
                 <option value="">Selecione o ano</option>
                 {carYears.map(year => (
-                  <option key={year.codigo} value={year.codigo}>
+                  <option className="options" key={year.codigo} value={year.codigo}>
                     {year.nome}
                   </option>
                 ))}
@@ -111,9 +111,7 @@ function BuscaFIPE() {
               {selectedYear && (
                 <div>
                   <h2>Resultado</h2>
-                  <p>Marca: {carBrands.find(brand => brand.codigo === selectedBrand)?.nome}</p>
-                  <p>Modelo: {carModels.find(model => model.codigo === selectedModel)?.nome}</p>
-                  <p>Ano: {carYears.find(year => year.codigo === selectedYear)?.nome}</p>
+                  
                   <h3>Valor:</h3> {carValue}
                 </div>
               )}
